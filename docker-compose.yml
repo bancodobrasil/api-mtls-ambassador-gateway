@@ -8,6 +8,6 @@ services:
       - PROXY_PASS=https://host.docker.internal
       - PROXY_SSL_VERIFY=off
     volumes:
-      - ./example/certs:/etc/nginx/conf.d/certs
+      - ./example/ambassador/client-certs:/etc/nginx/conf.d/certs
     ports:
       - 9090:80

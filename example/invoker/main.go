@@ -14,9 +14,10 @@ import (
 
 func main() {
 	logLevel := "info"
-	url := ""
+	apiDemoAmbassadorURL := ""
 
-	flag.StringVar(&url, "url", "http://localhost:9090", "Protected service URL")
+	flag.StringVar(&apiDemoAmbassadorURL, "api-demo-ambassador-url", "", "API Ambassador plain HTTP URL")
+	flag.Parse()
 
 	l, err := logrus.ParseLevel(logLevel)
 	if err != nil {
@@ -31,6 +32,7 @@ func main() {
 	logrus.SetLevel(l)
 
 	logrus.Infof("Starting mTLS plain HTTP requester Demo...")
+	logrus.Infof("Demo API URL: %s", apiDemoAmbassadorURL)
 
 	method := "POST"
 	var httpClient = &http.Client{Timeout: 30 * time.Second}
@@ -42,23 +44,23 @@ func main() {
 
 	if err != nil {
 		logrus.Errorf("Error encoding the request body to JSON. Error: %s", err)
-		logrus.Exit(999)
+		logrus.Exit(10)
 	}
-	req, err := http.NewRequest(method, url, payloadBuf)
+	req, err := http.NewRequest(method, apiDemoAmbassadorURL, payloadBuf)
 	req.Header.Add("dummy-api-key", "dummy_key_2021")
 	req.Header.Add("Content-Type", "application/json")
 
 	if err != nil {
 		logrus.Errorf("Error creatig request objetct. Error: %s", err)
-		logrus.Exit(999)
+		logrus.Exit(10)
 	}
 
-	logrus.Infof("Requesting to %s", url)
+	logrus.Infof("Requesting to %s", apiDemoAmbassadorURL)
 
 	resp, err := httpClient.Do(req)
 	if err != nil {
 		logrus.Errorf("Error doing the request. Error: %s", err)
-		logrus.Exit(999)
+		logrus.Exit(10)
 	}
 	defer resp.Body.Close()
 
@@ -67,7 +69,7 @@ func main() {
 
 	if resp.StatusCode > 299 {
 		logrus.Errorf("Unexpected http status on the request. Details: %+v", resp)
-		logrus.Exit(999)
+		logrus.Exit(10)
 	}
 
 	logrus.Infof("Invocation return: `%s`", respMap["responseMessage"])

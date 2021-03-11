@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  invoker:
+    image: local/demo-mtls-invoker
+    build: invoker
+    environment:
+      - API_DEMO_AMBASSADOR_URL=http://mtls-ambassador
+
+  mtls-ambassador:
+    image: local/demo-mtls-ambassador
+    build: ambassador
+    environment:
+      - PROXY_PASS=https://host.docker.internal
+      - PROXY_SSL_VERIFY=off
