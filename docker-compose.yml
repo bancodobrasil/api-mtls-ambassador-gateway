@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  mtls-ambassador:
+    image: local/api-mtls-ambassador-client
+    build: .
+    environment:
+      - PROXY_PASS=https://host.docker.internal
+      - PROXY_SSL_VERIFY=off
+    volumes:
+      - ./example/certs:/etc/nginx/conf.d/certs
+    ports:
+      - 9090:80
