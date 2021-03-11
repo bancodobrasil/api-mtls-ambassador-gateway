@@ -1,4 +1,4 @@
-# API mTLS Ambassador (Client)
+# API mTLS Ambassador Gateway (client)
 
 Ambassador Docker container used to authenticate using mTLS for the Open Banking and PIX API communication as client (request)
 
