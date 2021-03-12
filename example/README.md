@@ -2,7 +2,7 @@
 
 To see this example running, do the following:
 
-First, bring up the [mTLS API server sidecar example](https://github.com/bancodobrasil/api-mtls-sidecar-server).
+First, bring up the [mTLS API server sidecar example](https://github.com/bancodobrasil/api-mtls-sidecar-proxy/tree/main/example).
 
 Then:
 

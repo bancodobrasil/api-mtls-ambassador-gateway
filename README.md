@@ -4,7 +4,7 @@ Ambassador Docker container used to authenticate using mTLS for the Open Banking
 
 ## Quick Start
 
-First, bring up the [mTLS API server sidecar example](https://github.com/bancodobrasil/api-mtls-sidecar-server).
+First, bring up the [mTLS API server sidecar example](https://github.com/bancodobrasil/api-mtls-sidecar-proxy/tree/main/example).
 
 Now, to use this Ambassador to connect to this service using mTLS, open your terminal and:
 
