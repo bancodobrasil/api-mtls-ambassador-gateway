@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -72,6 +73,6 @@ func main() {
 		logrus.Exit(10)
 	}
 
-	logrus.Infof("Invocation return: `%s`", respMap["responseMessage"])
+	fmt.Println("******\n\n\nInvocation return: `" + respMap["responseMessage"] + "`\n\n\n******")
 
 }

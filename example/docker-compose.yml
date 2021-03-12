@@ -3,6 +3,7 @@ version: "3.7"
 services:
   invoker:
     image: local/demo-mtls-invoker
+    restart: always
     build: invoker
     environment:
       - API_DEMO_AMBASSADOR_URL=http://mtls-ambassador
