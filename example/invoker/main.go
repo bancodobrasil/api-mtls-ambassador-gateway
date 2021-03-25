@@ -39,7 +39,7 @@ func main() {
 	var httpClient = &http.Client{Timeout: 30 * time.Second}
 	payloadBuf := new(bytes.Buffer)
 	payload := map[string]string{
-		"requestMessage": "I'm behind the Ambassador",
+		"requestMessage": "I'm behind the Localiza Ambassador",
 	}
 	err = json.NewEncoder(payloadBuf).Encode(payload)
 
