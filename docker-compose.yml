@@ -2,11 +2,11 @@ version: "3.7"
 
 services:
   mtls-ambassador:
-    image: local/api-mtls-ambassador-gateway
+    image: local/api-mtls-ambassador-gateway:0.0.2
     build: .
     environment:
-      - PROXY_PASS=https://host.docker.internal
-      - PROXY_SSL_VERIFY=off
+      - PROXY_PASS=https://sidecar.mtls.labbs.com.br
+      - PROXY_SSL_VERIFY=off # on | off
     volumes:
       - ./example/ambassador/client-certs:/etc/nginx/conf.d/certs
     ports:

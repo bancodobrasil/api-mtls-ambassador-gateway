@@ -1,5 +1,5 @@
-FROM local/api-mtls-ambassador-client
+FROM labbsr0x/api-mtls-ambassador-client:0.0.2
 
-COPY client-certs/client.cert.pem /etc/nginx/conf.d/certs/client.cert.pem
-COPY client-certs/client.key.pem /etc/nginx/conf.d/certs/client.key.pem
-COPY client-certs/trusted_ca_cert.pem /etc/nginx/conf.d/certs/trusted_ca_cert.pem
+COPY client-certs/client.pem /etc/nginx/conf.d/certs/client.pem
+COPY client-certs/client-key.pem /etc/nginx/conf.d/certs/client-key.pem
+COPY client-certs/server-ca.pem /etc/nginx/conf.d/certs/server-ca.pem
