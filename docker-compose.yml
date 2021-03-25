@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mtls-ambassador:
-    image: local/api-mtls-ambassador-client
+    image: local/api-mtls-ambassador-gateway
     build: .
     environment:
       - PROXY_PASS=https://host.docker.internal
